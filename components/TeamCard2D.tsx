@@ -1,28 +1,4 @@
-export type TeamMember = {
-  name: string;
-  role: string;
-  imageSrc?: string;
-  socials?: {
-    linkedin?: string;
-    instagram?: string;
-  };
-};
-
-function IconLinkedIn(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" {...props}>
-      <path d="M4.98 3.5C4.98 4.88 3.86 6 2.48 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v14H0V8zm7.5 0h4.6v1.9h.1c.6-1.1 2.2-2.2 4.5-2.2 4.8 0 5.7 3.1 5.7 7.1V22H17v-6.2c0-1.5-.03-3.4-2.1-3.4-2.1 0-2.4 1.6-2.4 3.3V22H8V8z" />
-    </svg>
-  );
-}
-
-function IconInstagram(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" {...props}>
-      <path d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.8-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0Z" />
-    </svg>
-  );
-}
+import { IconInstagram, IconLinkedIn, type TeamMember } from "@/components/teamdata";
 
 export default function TeamCard2D({
   member,
@@ -53,15 +29,9 @@ export default function TeamCard2D({
       <div className="flex flex-col items-center text-center h-full">
         <div className="h-28 w-28 rounded-full bg-surface-container border border-surface-variant overflow-hidden flex items-center justify-center">
           {member.imageSrc ? (
-            <img
-              src={member.imageSrc}
-              alt={member.name}
-              className="h-full w-full object-cover"
-            />
+            <img src={member.imageSrc} alt={member.name} className="h-full w-full object-cover" />
           ) : (
-            <span className="material-symbols-outlined text-primary text-5xl">
-              person
-            </span>
+            <span className="material-symbols-outlined text-primary text-5xl">person</span>
           )}
         </div>
 
@@ -75,7 +45,7 @@ export default function TeamCard2D({
 
         <p className="mt-2 text-sm font-semibold text-primary">{member.role}</p>
 
-        {/* Socials */}
+        {/* socials */}
         <div className="mt-auto pt-6 flex items-center justify-center gap-3">
           {member.socials?.linkedin && (
             <a
@@ -83,29 +53,24 @@ export default function TeamCard2D({
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LinkedIn"
-              onClick={(e) => e.stopPropagation()} // prevent cycling when clicking icon
+              onClick={(e) => e.stopPropagation()}
               className="w-9 h-9 rounded-full border border-surface-variant bg-surface-container hover:bg-primary-container text-on-surface-variant hover:text-on-primary-container transition-colors flex items-center justify-center"
             >
               <IconLinkedIn />
             </a>
           )}
-
           {member.socials?.instagram && (
             <a
               href={member.socials.instagram}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
-              onClick={(e) => e.stopPropagation()} // prevent cycling when clicking icon
+              onClick={(e) => e.stopPropagation()}
               className="w-9 h-9 rounded-full border border-surface-variant bg-surface-container hover:bg-primary-container text-on-surface-variant hover:text-on-primary-container transition-colors flex items-center justify-center"
             >
               <IconInstagram />
             </a>
           )}
-        </div>
-
-        <div className="pt-4 text-xs font-bold text-on-surface-variant">
-          Click to cycle →
         </div>
       </div>
     </button>
