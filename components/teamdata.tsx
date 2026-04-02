@@ -1,5 +1,9 @@
 import type { SVGProps } from "react";
 
+const facultyImage = (fileName: string) => `/faculty/${fileName}`;
+const teamImage = (department: string, fileName: string) =>
+  `/team/${department}/${fileName}`;
+
 export type FacultyMember = {
   id: number;
   name: string;
@@ -17,31 +21,37 @@ export const facultyMembers: FacultyMember[] = [
     name: "Dr. Bhaskar Kapoor",
     roleLabel: "FACULTY",
     desc: "Empowering students with mentorship that blends wisdom",
-    imageSrc: "/faculty/dr-bhaskar.jpg",
-    socials: { linkedin: "https://www.linkedin.com/in/dr-bhaskar-kapoor-6b4b7819/" },
+    imageSrc: facultyImage("drBhaskar.jpeg"),
+    socials: {
+      linkedin: "https://www.linkedin.com/in/dr-bhaskar-kapoor-6b4b7819/",
+    },
   },
   {
     id: 2,
     name: "Dr. Bhoomi Gupta",
     roleLabel: "FACULTY",
     desc: "A communications lead who connects people and ideas",
-    imageSrc: "/faculty/dr-bhoomi.jpg",
-    socials: { linkedin: "https://www.linkedin.com/in/dr-bhoomi-gupta-3278a734/" },
+    imageSrc: facultyImage("drBhoomi.jpeg"),
+    socials: {
+      linkedin: "https://www.linkedin.com/in/dr-bhoomi-gupta-3278a734/",
+    },
   },
   {
     id: 3,
     name: "Dr. Monika Bhardwaj",
     roleLabel: "FACULTY",
     desc: "Organizes memorable experiences and events that leave a lasting impact",
-    imageSrc: "/faculty/dr-monika.jpg",
-    socials: { linkedin: "https://www.linkedin.com/in/monika-bhardwaj-7709a3a9/" },
+    imageSrc: facultyImage("drMonika.jpeg"),
+    socials: {
+      linkedin: "https://www.linkedin.com/in/monika-bhardwaj-7709a3a9/",
+    },
   },
   {
     id: 4,
     name: "Vikas Mani Tripathi",
     roleLabel: "FACULTY",
     desc: "Guiding students with expertise and dedication",
-    imageSrc: "/faculty/vikas-mani.jpg",
+    imageSrc: facultyImage("vikasMani.jpg"),
     socials: { linkedin: "https://www.linkedin.com/in/vikas-mani-tripathi/" },
   },
   {
@@ -49,8 +59,10 @@ export const facultyMembers: FacultyMember[] = [
     name: "Sanjana Deswal",
     roleLabel: "FACULTY",
     desc: "Inspiring excellence through innovative teaching and mentorship",
-    imageSrc: "/faculty/sanjana-deswal.jpg",
-    socials: { linkedin: "https://www.linkedin.com/in/sanjana-deswal-4b390616a/" },
+    imageSrc: facultyImage("sanjanaDeswal.jpg"),
+    socials: {
+      linkedin: "https://www.linkedin.com/in/sanjana-deswal-4b390616a/",
+    },
   },
 ];
 
@@ -84,43 +96,228 @@ export function IconInstagram(props: SVGProps<SVGSVGElement>) {
   );
 }
 export const teamMembers: TeamMember[] = [
-  { id: 1, name: "Saksham Gupta", role: "President", group: "core" },
-  { id: 2, name: "Shubham Jha", role: "Vice President", group: "core" },
-  { id: 3, name: "Yatin Kumar", role: "Secretary", group: "core" },
+  {
+    id: 1,
+    name: "Saksham Gupta",
+    role: "President",
+    group: "core",
+    imageSrc: teamImage("core", "Saksham.jpeg"),
+  },
+  {
+    id: 2,
+    name: "Shubham Jha",
+    role: "Vice President",
+    group: "core",
+    imageSrc: teamImage("core", "ShubhamJha.jpg"),
+  },
+  {
+    id: 3,
+    name: "Yatin Kumar",
+    role: "Secretary",
+    group: "core",
+    imageSrc: teamImage("core", "YatinKumar.jpeg"),
+  },
 
-  { id: 4, name: "Pari Goel", role: "Joint Secretary", group: "Public Relations" },
-  { id: 5, name: "Ridhi Garg", role: "Secretary", group: "Event Management" },
-  { id: 6, name: "Sharvi Aggarwal", role: "Joint Secretary", group: "Social Media & Photography" },
-  { id: 7, name: "Kushneet", role: "Cloud Captain", group: "Content" },
+  {
+    id: 4,
+    name: "Pari Goel",
+    role: "Joint Secretary",
+    group: "Public Relations",
+    imageSrc: teamImage("public-relations", "PariGoel.jpeg"),
+  },
+  {
+    id: 5,
+    name: "Ridhi Garg",
+    role: "Secretary",
+    group: "Event Management",
+    imageSrc: teamImage("event-management", "Ridhi.jpeg"),
+  },
+  {
+    id: 6,
+    name: "Sharvi Aggarwal",
+    role: "Joint Secretary",
+    group: "Social Media & Photography",
+    imageSrc: teamImage("social-media-photography", "Sharvi.jpeg"),
+  },
+  {
+    id: 7,
+    name: "Kushneet",
+    role: "Cloud Captain",
+    group: "Content",
+    imageSrc: teamImage("content", "Khushneet.jpg"),
+  },
 
-  { id: 9, name: "Rishu", role: "Event Management", group: "Event Management" },
-  { id: 10, name: "Aryan Gupta", role: "Event Management", group: "Event Management" },
-  { id: 11, name: "Parth Aggarwal", role: "Event Management", group: "Event Management" },
-  { id: 12, name: "Vasudev Shukla", role: "Event Management", group: "Event Management" },
-  { id: 13, name: "Naman Gupta", role: "Event Management", group: "Event Management" },
-  { id: 14, name: "Navya Gupta", role: "Event Management", group: "Event Management" },
-  { id: 15, name: "Arjun Lakhanpal", role: "Event Management", group: "Event Management" },
+  {
+    id: 9,
+    name: "Rishu",
+    role: "Event Management",
+    group: "Event Management",
+    imageSrc: teamImage("event-management", "Rishu.jpg"),
+  },
+  {
+    id: 10,
+    name: "Aryan Gupta",
+    role: "Event Management",
+    group: "Event Management",
+    imageSrc: teamImage("event-management", "Aryan.jpeg"),
+  },
+  {
+    id: 11,
+    name: "Parth Aggarwal",
+    role: "Event Management",
+    group: "Event Management",
+    imageSrc: teamImage("event-management", "Parth.jpg"),
+  },
+  {
+    id: 12,
+    name: "Vasudev Shukla",
+    role: "Event Management",
+    group: "Event Management",
+    imageSrc: teamImage("event-management", "Vasudev.jpg"),
+  },
+  {
+    id: 13,
+    name: "Naman Gupta",
+    role: "Event Management",
+    group: "Event Management",
+    imageSrc: teamImage("event-management", "Naman.jpg"),
+  },
+  {
+    id: 14,
+    name: "Navya Gupta",
+    role: "Event Management",
+    group: "Event Management",
+    imageSrc: teamImage("event-management", "Navya.jpg"),
+  },
+  {
+    id: 15,
+    name: "Arjun Lakhanpal",
+    role: "Event Management",
+    group: "Event Management",
+    imageSrc: teamImage("event-management", "Arjun.jpg"),
+  },
 
-  { id: 16, name: "Rehan Satija", role: "Public Relations", group: "Public Relations" },
-  { id: 17, name: "Jatin Rana", role: "Public Relations", group: "Public Relations" },
-  { id: 18, name: "Rishit Gupta", role: "Public Relations", group: "Public Relations" },
-  { id: 19, name: "Shyam Tyagi", role: "Public Relations", group: "Public Relations" },
-  { id: 20, name: "Aashi Jain", role: "Public Relations", group: "Public Relations" },
-  { id: 21, name: "Eklavya", role: "Public Relations", group: "Public Relations" },
+  {
+    id: 16,
+    name: "Rehan Satija",
+    role: "Public Relations",
+    group: "Public Relations",
+    imageSrc: teamImage("public-relations", "Rehan.jpg"),
+  },
+  {
+    id: 17,
+    name: "Jatin Rana",
+    role: "Public Relations",
+    group: "Public Relations",
+    imageSrc: teamImage("public-relations", "Jatin.jpg"),
+  },
+  {
+    id: 18,
+    name: "Rishit Gupta",
+    role: "Public Relations",
+    group: "Public Relations",
+    imageSrc: teamImage("public-relations", "Rishit.jpeg"),
+  },
+  {
+    id: 19,
+    name: "Shyam Tyagi",
+    role: "Public Relations",
+    group: "Public Relations",
+    imageSrc: teamImage("public-relations", "Shyam.jpeg"),
+  },
+  {
+    id: 20,
+    name: "Aashi Jain",
+    role: "Public Relations",
+    group: "Public Relations",
+    imageSrc: teamImage("public-relations", "Aashi.jpg"),
+  },
+  {
+    id: 21,
+    name: "Eklavya",
+    role: "Public Relations",
+    group: "Public Relations",
+    imageSrc: teamImage("public-relations", "Eklavya.jpg"),
+  },
 
-  { id: 22, name: "Abhinav", role: "Content", group: "Content" },
-  { id: 23, name: "Manav", role: "Content", group: "Content" },
+  {
+    id: 22,
+    name: "Abhinav",
+    role: "Content",
+    group: "Content",
+    imageSrc: teamImage("content", "Abhinav.jpg"),
+  },
+  {
+    id: 23,
+    name: "Manav",
+    role: "Content",
+    group: "Content",
+    imageSrc: teamImage("content", "Manav.png"),
+  },
 
-  { id: 25, name: "Kush Sharma", role: "Social Media & Photography", group: "Social Media & Photography" },
-  { id: 27, name: "Aayush Grover", role: "Social Media & Photography", group: "Social Media & Photography" },
-  { id: 28, name: "Piyush", role: "Social Media & Photography", group: "Social Media & Photography" },
-  { id: 29, name: "Krish", role: "Social Media & Photography", group: "Social Media & Photography" },
+  {
+    id: 25,
+    name: "Kush Sharma",
+    role: "Social Media & Photography",
+    group: "Social Media & Photography",
+    imageSrc: teamImage("social-media-photography", "Kush.jpeg"),
+  },
+  {
+    id: 27,
+    name: "Aayush Grover",
+    role: "Social Media & Photography",
+    group: "Social Media & Photography",
+  },
+  {
+    id: 28,
+    name: "Piyush",
+    role: "Social Media & Photography",
+    group: "Social Media & Photography",
+    imageSrc: teamImage("social-media-photography", "Piyush.jpeg"),
+  },
+  {
+    id: 29,
+    name: "Krish",
+    role: "Social Media & Photography",
+    group: "Social Media & Photography",
+    imageSrc: teamImage("social-media-photography", "Krish.jpeg"),
+  },
 
-  { id: 30, name: "Faisal", role: "Technical head", group: "Technical" },
-  { id: 31, name: "Abhishek", role: "Technical", group: "Technical" },
-  { id: 32, name: "Arpit Neewaliya", role: "Technical", group: "Technical" },
-  { id: 33, name: "Divesh", role: "Technical", group: "Technical" },
-  { id: 34, name: "Veeraj Ghalyan", role: "Technical", group: "Technical" },
+  {
+    id: 30,
+    name: "Faisal",
+    role: "Technical head",
+    group: "Technical",
+    imageSrc: teamImage("technical", "Faisal.jpg"),
+  },
+  {
+    id: 31,
+    name: "Abhishek",
+    role: "Technical",
+    group: "Technical",
+    imageSrc: teamImage("technical", "Abhishek.jpg"),
+  },
+  {
+    id: 32,
+    name: "Arpit Neewaliya",
+    role: "Technical",
+    group: "Technical",
+    imageSrc: teamImage("technical", "Arpit.jpeg"),
+  },
+  {
+    id: 33,
+    name: "Divesh",
+    role: "Technical",
+    group: "Technical",
+    imageSrc: teamImage("technical", "Divesh.png"),
+  },
+  {
+    id: 34,
+    name: "Veeraj Ghalyan",
+    role: "Technical",
+    group: "Technical",
+    imageSrc: teamImage("technical", "Veeraj.jpeg"),
+  },
 ];
 
 export const teamCategories = [

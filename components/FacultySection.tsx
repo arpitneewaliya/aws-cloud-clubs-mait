@@ -1,8 +1,15 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { facultyMembers, IconLinkedIn } from "@/components/teamdata";
 
 export default function FacultySection() {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   return (
     <section className="mx-auto max-w-7xl px-6 pt-6 pb-12">
       <h2 className="text-2xl md:text-3xl font-black font-headline text-on-primary-container text-center mb-8">
@@ -25,7 +32,7 @@ export default function FacultySection() {
           >
             <div className="flex flex-col items-center text-center gap-4">
               <div className="h-28 w-28 rounded-full overflow-hidden border border-surface-variant bg-surface-container flex items-center justify-center">
-                {f.imageSrc ? (
+                {hasMounted && f.imageSrc ? (
                   <img
                     src={f.imageSrc}
                     alt={f.name}

@@ -1,4 +1,11 @@
-import { IconInstagram, IconLinkedIn, type TeamMember } from "@/components/teamdata";
+"use client";
+
+import { useEffect, useState } from "react";
+import {
+  IconInstagram,
+  IconLinkedIn,
+  type TeamMember,
+} from "@/components/teamdata";
 
 export default function TeamCard2D({
   member,
@@ -7,6 +14,12 @@ export default function TeamCard2D({
   member: TeamMember;
   onClick?: () => void;
 }) {
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+  }, []);
+
   return (
     <button
       type="button"
@@ -28,10 +41,16 @@ export default function TeamCard2D({
     >
       <div className="flex flex-col items-center text-center h-full">
         <div className="h-28 w-28 rounded-full bg-surface-container border border-surface-variant overflow-hidden flex items-center justify-center">
-          {member.imageSrc ? (
-            <img src={member.imageSrc} alt={member.name} className="h-full w-full object-cover" />
+          {hasMounted && member.imageSrc ? (
+            <img
+              src={member.imageSrc}
+              alt={member.name}
+              className="h-full w-full object-cover"
+            />
           ) : (
-            <span className="material-symbols-outlined text-primary text-5xl">person</span>
+            <span className="material-symbols-outlined text-primary text-5xl">
+              person
+            </span>
           )}
         </div>
 

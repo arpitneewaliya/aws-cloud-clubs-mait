@@ -8,7 +8,7 @@ const CARD_W = 320;
 const CARD_H = 420;
 
 // Put your back image in: public/team/screen2.png (or change this)
-const CARD_BACK_SRC = "/screen2.png";
+const CARD_BACK_SRC = "/team/screen2.png";
 
 type Anim = "idle" | "toLeft" | "toRight";
 
@@ -55,7 +55,11 @@ export default function TeamCard() {
           className="relative"
           aria-label="Previous member"
         >
-          <CardStack side="left" count={leftCount} cardBackSrc={CARD_BACK_SRC} />
+          <CardStack
+            side="left"
+            count={leftCount}
+            cardBackSrc={CARD_BACK_SRC}
+          />
           {/* optional hint */}
           {leftRemaining > 0 && (
             <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-bold text-on-surface-variant">
@@ -115,7 +119,11 @@ export default function TeamCard() {
           className="relative"
           aria-label="Next member"
         >
-          <CardStack side="right" count={rightCount} cardBackSrc={CARD_BACK_SRC} />
+          <CardStack
+            side="right"
+            count={rightCount}
+            cardBackSrc={CARD_BACK_SRC}
+          />
           {/* optional hint */}
           {rightRemaining > 0 && (
             <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 text-xs font-bold text-on-surface-variant">
