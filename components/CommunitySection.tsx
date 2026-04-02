@@ -40,7 +40,7 @@ const platforms: Platform[] = [
     description:
       "Follow us for event highlights and behind-the-scenes content.",
     cta: "FOLLOW ->",
-    href: "#",
+    href: "https://www.instagram.com/awscloudclub_mait",
     Icon: IconInstagram,
     accent: "text-error",
   },
@@ -49,7 +49,7 @@ const platforms: Platform[] = [
     name: "LinkedIn",
     description: "Connect professionally and follow us for opportunities.",
     cta: "CONNECT ->",
-    href: "#",
+    href: "https://www.linkedin.com/company/aws-cloud-club-maitt/",
     Icon: IconLinkedIn,
     accent: "text-primary",
   },
@@ -58,7 +58,7 @@ const platforms: Platform[] = [
     name: "Meetup",
     description: "RSVP to our events and never miss a workshop or session.",
     cta: "VIEW EVENTS ->",
-    href: "#",
+    href: "https://meetup.com/aws-cloud-club-at-maharaja-agrasen-inst-of-technology",
     Icon: IconMeetup,
     accent: "text-secondary-dim",
   },
@@ -157,6 +157,7 @@ export default function CommunitySection() {
               const { platform } = item;
               const { Icon } = platform;
               const ctaEnabled = platform.href.trim().length > 0;
+              const openInNewTab = ctaEnabled;
 
               return (
                 <article
@@ -197,6 +198,8 @@ export default function CommunitySection() {
                     {ctaEnabled ? (
                       <a
                         href={platform.href}
+                        target={openInNewTab ? "_blank" : undefined}
+                        rel={openInNewTab ? "noopener noreferrer" : undefined}
                         className={[
                           "inline-flex items-center gap-2",
                           "text-sm font-headline font-black tracking-wide uppercase",
