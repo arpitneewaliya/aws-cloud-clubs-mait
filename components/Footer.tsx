@@ -1,11 +1,12 @@
-import { type ComponentType, type SVGProps } from "react";
+import { type CSSProperties, type ComponentType, type SVGProps } from "react";
 
 type SocialLink = {
   name: string;
   href: string;
-  tone: string;
-  iconTone: string;
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
+  rotateHoverClass: string;
+  animationDelay: string;
+  animationDuration: string;
 };
 
 export default function Footer() {
@@ -15,124 +16,123 @@ export default function Footer() {
     {
       name: "WhatsApp",
       href: "#",
-      tone: "text-secondary border-secondary/25 bg-secondary/10",
-      iconTone: "bg-secondary text-on-secondary",
       Icon: IconWhatsApp,
-    },
-    {
-      name: "Instagram",
-      href: "https://www.instagram.com/awscloudclub_mait",
-      tone: "text-error border-error/25 bg-error/10",
-      iconTone: "bg-error text-on-error",
-      Icon: IconInstagram,
+      rotateHoverClass: "hover:rotate-6",
+      animationDelay: "0s",
+      animationDuration: "4s",
     },
     {
       name: "LinkedIn",
       href: "https://www.linkedin.com/company/aws-cloud-club-maitt/",
-      tone: "text-primary border-primary/25 bg-primary/10",
-      iconTone: "bg-primary text-on-primary",
       Icon: IconLinkedIn,
+      rotateHoverClass: "hover:-rotate-6",
+      animationDelay: "0.5s",
+      animationDuration: "4.5s",
+    },
+    {
+      name: "Instagram",
+      href: "https://www.instagram.com/awscloudclub_mait",
+      Icon: IconInstagram,
+      rotateHoverClass: "hover:rotate-12",
+      animationDelay: "1s",
+      animationDuration: "4.2s",
     },
     {
       name: "Meetup",
       href: "https://meetup.com/aws-cloud-club-at-maharaja-agrasen-inst-of-technology",
-      tone: "text-secondary-dim border-secondary-dim/25 bg-secondary-dim/10",
-      iconTone: "bg-secondary-dim text-on-secondary",
       Icon: IconMeetup,
+      rotateHoverClass: "hover:-rotate-12",
+      animationDelay: "1.5s",
+      animationDuration: "4.8s",
     },
   ];
 
   return (
-    <footer className="relative mt-20 w-full border-t border-outline-variant/40 bg-surface-container-low">
+    <footer
+      className="footer-cloud-gradient relative mt-24 w-full overflow-hidden"
+      style={{
+        borderTopLeftRadius: "4rem",
+        borderTopRightRadius: "4rem",
+        boxShadow: "0 -20px 50px rgba(0,68,146,0.1)",
+      }}
+    >
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-linear-to-b from-primary/10 to-transparent"
+        className="absolute left-0 top-0 flex h-8 w-full -translate-y-px overflow-hidden"
         aria-hidden="true"
-      />
+      >
+        <div
+          className="h-12 w-full scale-x-110 bg-background"
+          style={{
+            borderBottomLeftRadius: "4rem",
+            borderBottomRightRadius: "4rem",
+          }}
+        />
+      </div>
 
-      <div className="relative mx-auto w-full max-w-7xl px-6 py-12 sm:px-8">
-        <div className="overflow-hidden rounded-3xl border border-outline-variant/50 bg-surface-container-lowest/90 shadow-[0_20px_44px_rgba(39,90,168,0.12)] backdrop-blur-sm">
-          <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.15fr_1fr] lg:gap-10">
-            <div className="text-center lg:text-left">
-              <span className="inline-flex items-center rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-xs font-black tracking-[0.12rem] text-primary">
-                CLOUD COMMUNITY
-              </span>
-
-              <div className="mt-4 flex items-center justify-center gap-3 lg:justify-start">
-                <img
-                  className="h-10 w-auto opacity-90 mix-blend-multiply"
-                  alt="AWS Cloud Clubs MAIT Logo Small"
-                  src="/logo/aws-cloud-clubs-logo.jpeg"
-                />
-                <span className="text-xl font-headline font-black text-on-surface">
-                  AWS Cloud Clubs MAIT
-                </span>
-              </div>
-
-              <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-on-surface-variant font-body lg:mx-0">
-                Student builders, cloud explorers, and tech storytellers. Stay
-                connected with us across every channel.
-              </p>
-
-              <div className="mt-5 flex flex-wrap justify-center gap-2 lg:justify-start">
-                <span className="rounded-full border border-outline-variant/50 bg-surface-container px-3 py-1 text-xs font-headline font-bold text-on-surface-variant">
-                  Student-led
-                </span>
-                <span className="rounded-full border border-outline-variant/50 bg-surface-container px-3 py-1 text-xs font-headline font-bold text-on-surface-variant">
-                  Hands-on
-                </span>
-                <span className="rounded-full border border-outline-variant/50 bg-surface-container px-3 py-1 text-xs font-headline font-bold text-on-surface-variant">
-                  Open community
-                </span>
-              </div>
-            </div>
-
-            <div>
-              <p className="text-center text-xs font-headline font-black tracking-[0.12rem] text-on-surface-variant lg:text-left">
-                FIND US ONLINE
-              </p>
-
-              <div className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2">
-                {socialLinks.map((link, index) => {
-                  const openInNewTab = link.href.trim().length > 0;
-                  const { Icon } = link;
-
-                  return (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      target={openInNewTab ? "_blank" : undefined}
-                      rel={openInNewTab ? "noopener noreferrer" : undefined}
-                      className={`group inline-flex min-w-40 items-center gap-3 rounded-2xl border px-3 py-2.5 text-sm font-headline font-black tracking-wide transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md ${link.tone}`}
-                    >
-                      <span
-                        className={`inline-flex h-9 w-9 items-center justify-center rounded-xl shadow-inner ${link.iconTone}`}
-                        aria-hidden="true"
-                      >
-                        <Icon className="h-4.5 w-4.5" />
-                      </span>
-
-                      <span className="text-on-surface">{link.name}</span>
-
-                      <span className="ml-auto inline-flex h-7 w-7 items-center justify-center rounded-full border border-current/25 bg-surface-container-lowest/70 text-xs font-black transition-transform duration-200 group-hover:translate-x-0.5">
-                        {index + 1}
-                      </span>
-                    </a>
-                  );
-                })}
-              </div>
-            </div>
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-col items-center justify-between gap-8 px-6 py-14 md:flex-row md:px-10">
+        <div className="flex flex-col items-center gap-4 text-center md:items-start md:text-left">
+          <div className="flex cursor-pointer items-center gap-4 transition-transform duration-300 hover:scale-105">
+            <img
+              className="h-12 w-auto animate-float-mini mix-blend-multiply"
+              alt="AWS Cloud Clubs MAIT Logo Small"
+              src="/logo/aws-cloud-clubs-logo.jpeg"
+            />
+            <span className="font-headline text-2xl font-black tracking-tight text-primary-dim sm:text-3xl">
+              AWS Cloud Clubs MAIT
+            </span>
           </div>
 
-          <div className="flex flex-col gap-2 border-t border-outline-variant/40 bg-surface-container-low px-6 py-4 text-center sm:flex-row sm:items-center sm:justify-between sm:px-8 sm:text-left">
-            <p className="text-xs text-on-surface-variant font-body sm:text-sm">
-              Build. Learn. Share.
-            </p>
-            <p className="text-xs text-on-surface-variant font-body sm:text-sm">
-              © {currentYear} AWS Cloud Clubs MAIT. All rights reserved.
-            </p>
+          <p className="font-body text-sm font-medium text-on-surface/70">
+            © {currentYear} AWS Cloud Clubs MAIT. Built in the pixelated
+            stratosphere.
+          </p>
+        </div>
+
+        <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8">
+            {socialLinks.map((link) => {
+              const isExternal = /^https?:\/\//.test(link.href);
+              const floatingStyle: CSSProperties = {
+                animationDelay: link.animationDelay,
+                animationDuration: link.animationDuration,
+              };
+              const { Icon } = link;
+
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  className={`animate-float text-on-surface-variant transition-all duration-300 hover:scale-125 hover:text-primary ${link.rotateHoverClass}`}
+                  style={floatingStyle}
+                >
+                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-2xl border border-primary/20 bg-surface-container-lowest text-primary shadow-sm transition-colors duration-300 hover:bg-white">
+                    <Icon className="h-5 w-5" />
+                  </span>
+                  <span className="sr-only">{link.name}</span>
+                </a>
+              );
+            })}
           </div>
+
+          <button
+            type="button"
+            className="pixel-hard-shadow rounded-full bg-primary px-8 py-3 font-headline text-lg font-black text-on-primary transition-all hover:scale-110 active:scale-90 sm:px-10 sm:py-4 sm:text-xl"
+          >
+            JOIN THE CLUB
+          </button>
         </div>
       </div>
+
+      <div
+        className="pointer-events-none absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-blue-200/20 blur-3xl"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -bottom-10 -right-10 h-40 w-40 rounded-full bg-primary-container/20 blur-3xl"
+        aria-hidden="true"
+      />
     </footer>
   );
 }

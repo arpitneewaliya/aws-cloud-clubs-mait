@@ -2,7 +2,6 @@
 
 import {
   useEffect,
-  useMemo,
   useRef,
   useState,
   type ComponentType,
@@ -16,51 +15,53 @@ type Platform = {
   cta: string;
   href: string;
   Icon: ComponentType<SVGProps<SVGSVGElement>>;
-  accent: string;
+  iconPanel: string;
+  buttonTone: string;
 };
-
-type SequenceItem =
-  | { type: "card"; platform: Platform }
-  | { type: "arrow"; key: string };
 
 const platforms: Platform[] = [
   {
     key: "whatsapp",
     name: "WhatsApp",
     description:
-      "Join our WhatsApp community for instant updates and discussion.",
-    cta: "JOIN ->",
+      "Daily updates, quick coordination, and instant community chats.",
+    cta: "Join WhatsApp",
     href: "#",
     Icon: IconWhatsApp,
-    accent: "text-secondary",
+    iconPanel: "bg-[#128c7e] text-[#e7fff9]",
+    buttonTone: "bg-[#25d366] text-[#083c30]",
+  },
+  {
+    key: "linkedin",
+    name: "LinkedIn",
+    description:
+      "Professional networking, career opportunities, and club achievements.",
+    cta: "Follow Page",
+    href: "https://www.linkedin.com/company/aws-cloud-club-maitt/",
+    Icon: IconLinkedIn,
+    iconPanel: "bg-[#214b63] text-[#a4dcff]",
+    buttonTone: "bg-[#0b6d8c] text-white",
   },
   {
     key: "instagram",
     name: "Instagram",
     description:
-      "Follow us for event highlights and behind-the-scenes content.",
-    cta: "FOLLOW ->",
+      "Vlogs, event highlights, and a look into the MAIT campus life.",
+    cta: "Follow Us",
     href: "https://www.instagram.com/awscloudclub_mait",
     Icon: IconInstagram,
-    accent: "text-error",
-  },
-  {
-    key: "linkedin",
-    name: "LinkedIn",
-    description: "Connect professionally and follow us for opportunities.",
-    cta: "CONNECT ->",
-    href: "https://www.linkedin.com/company/aws-cloud-club-maitt/",
-    Icon: IconLinkedIn,
-    accent: "text-primary",
+    iconPanel: "bg-linear-to-br from-[#e93e92] to-[#d93472] text-[#ffe7f3]",
+    buttonTone: "bg-[#f8c803] text-[#2a2f32]",
   },
   {
     key: "meetup",
     name: "Meetup",
-    description: "RSVP to our events and never miss a workshop or session.",
-    cta: "VIEW EVENTS ->",
+    description: "Workshops, bootcamps, and cloud summits happening in person.",
+    cta: "Join Group",
     href: "https://meetup.com/aws-cloud-club-at-maharaja-agrasen-inst-of-technology",
     Icon: IconMeetup,
-    accent: "text-secondary-dim",
+    iconPanel: "bg-[#1f4e60] text-[#bde6ff]",
+    buttonTone: "bg-[#6f9be8] text-[#10346f]",
   },
 ];
 
@@ -79,154 +80,80 @@ export default function CommunitySection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.2 },
+      { threshold: 0.25 },
     );
 
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
 
-  const sequence = useMemo<SequenceItem[]>(() => {
-    return platforms.flatMap((platform, index) => {
-      if (index === platforms.length - 1) {
-        return [{ type: "card", platform }];
-      }
-      return [
-        { type: "card", platform },
-        { type: "arrow", key: `arrow-${platform.key}` },
-      ];
-    });
-  }, []);
-
   return (
     <section
       ref={sectionRef}
-      className="py-24 px-6"
+      className="px-4 py-20 sm:px-6"
       aria-labelledby="community-heading"
     >
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12 md:mb-14">
-          <p className="font-label text-xs font-bold tracking-[0.18rem] uppercase text-secondary mb-4">
-            Join The Guild
-          </p>
+      <div className="mx-auto max-w-7xl">
+        <div
+          className={`text-center transition-all duration-500 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-2 opacity-0"
+          }`}
+        >
           <h2
             id="community-heading"
-            className="font-headline font-black text-4xl md:text-6xl lg:text-7xl tracking-tight text-on-surface"
+            className="font-headline text-4xl font-black tracking-tight text-on-surface sm:text-5xl"
           >
-            CONNECT WITH US
+            Connect with Us
           </h2>
-          <p className="mt-4 text-base md:text-xl text-on-surface-variant max-w-2xl mx-auto">
-            Join our community across platforms.
-          </p>
+          <div className="mx-auto mt-4 h-1 w-24 rounded-full bg-primary" />
         </div>
 
-        <div className="relative">
-          <div className="pointer-events-none absolute inset-x-0 top-1/2 hidden md:block h-px bg-gradient-to-r from-transparent via-outline-variant to-transparent" />
+        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {platforms.map((platform, index) => {
+            const { Icon } = platform;
+            const isExternal = /^https?:\/\//.test(platform.href);
 
-          <div className="relative flex flex-col md:flex-row md:items-stretch items-center justify-center gap-3 md:gap-2 lg:gap-3">
-            {sequence.map((item, index) => {
-              const revealClass = isVisible
-                ? "animate-fade-in-up"
-                : "opacity-0 translate-y-3";
-
-              const revealStyle = isVisible
-                ? ({ animationDelay: `${index * 130}ms` } as const)
-                : undefined;
-
-              if (item.type === "arrow") {
-                return (
-                  <div
-                    key={item.key}
-                    className={[
-                      "flex items-center justify-center w-full md:w-10 lg:w-12 h-8 md:h-auto",
-                      "text-outline",
-                      "motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:animate-none",
-                      revealClass,
-                    ].join(" ")}
-                    style={revealStyle}
-                    aria-hidden="true"
+            return (
+              <article
+                key={platform.key}
+                className={`rounded-3xl border border-outline-variant/40 bg-surface-container-lowest px-5 py-6 text-center shadow-[0_10px_30px_rgba(39,90,168,0.09)] transition-all duration-300 hover:-translate-y-1 ${
+                  isVisible
+                    ? "animate-fade-in-up motion-reduce:animate-none"
+                    : "translate-y-5 opacity-0"
+                }`}
+                style={
+                  isVisible
+                    ? ({ animationDelay: `${index * 140}ms` } as const)
+                    : undefined
+                }
+              >
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-surface-container">
+                  <span
+                    className={`inline-flex h-11 w-11 items-center justify-center rounded-lg ${platform.iconPanel}`}
                   >
-                    <span className="hidden md:inline text-3xl leading-none">
-                      →
-                    </span>
-                    <span className="md:hidden text-3xl leading-none">↓</span>
-                  </div>
-                );
-              }
+                    <Icon className="h-5 w-5" />
+                  </span>
+                </div>
 
-              const { platform } = item;
-              const { Icon } = platform;
-              const ctaEnabled = platform.href.trim().length > 0;
-              const openInNewTab = ctaEnabled;
+                <h3 className="mt-5 font-headline text-2xl font-black text-primary">
+                  {platform.name}
+                </h3>
 
-              return (
-                <article
-                  key={platform.key}
-                  className={[
-                    "w-full md:w-[16.5rem] lg:w-[17rem] min-h-[18rem]",
-                    "rounded-[1.75rem] border border-outline-variant bg-surface-container-lowest",
-                    "px-6 py-6 md:py-7",
-                    "shadow-[0_8px_30px_rgba(39,90,168,0.08)]",
-                    "transition-all duration-300",
-                    "hover:-translate-y-1 hover:shadow-[0_14px_36px_rgba(39,90,168,0.16)] hover:border-primary/45",
-                    "flex flex-col",
-                    "motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:animate-none",
-                    revealClass,
-                  ].join(" ")}
-                  style={revealStyle}
+                <p className="mt-3 min-h-20 text-sm leading-relaxed text-on-surface-variant font-body">
+                  {platform.description}
+                </p>
+
+                <a
+                  href={platform.href}
+                  target={isExternal ? "_blank" : undefined}
+                  rel={isExternal ? "noopener noreferrer" : undefined}
+                  className={`pixel-hard-shadow mt-5 inline-flex w-full items-center justify-center rounded-full px-4 py-3 font-headline text-sm font-black tracking-wide transition-all duration-200 hover:-translate-y-0.5 ${platform.buttonTone}`}
                 >
-                  <div className="w-14 h-14 rounded-2xl border border-surface-variant bg-surface-container flex items-center justify-center mb-5">
-                    <Icon
-                      className={[
-                        "w-7 h-7",
-                        platform.accent,
-                        "transition-transform duration-300",
-                        "group-hover:scale-110",
-                      ].join(" ")}
-                    />
-                  </div>
-
-                  <h3 className="font-headline font-black text-2xl text-on-surface tracking-tight">
-                    {platform.name}
-                  </h3>
-
-                  <p className="mt-3 text-sm md:text-base text-on-surface-variant leading-relaxed">
-                    {platform.description}
-                  </p>
-
-                  <div className="mt-auto pt-7">
-                    {ctaEnabled ? (
-                      <a
-                        href={platform.href}
-                        target={openInNewTab ? "_blank" : undefined}
-                        rel={openInNewTab ? "noopener noreferrer" : undefined}
-                        className={[
-                          "inline-flex items-center gap-2",
-                          "text-sm font-headline font-black tracking-wide uppercase",
-                          platform.accent,
-                          "hover:opacity-80 transition-opacity",
-                        ].join(" ")}
-                      >
-                        {platform.cta}
-                      </a>
-                    ) : (
-                      <span
-                        className={[
-                          "inline-flex items-center gap-2",
-                          "text-sm font-headline font-black tracking-wide uppercase",
-                          platform.accent,
-                          "opacity-60",
-                        ].join(" ")}
-                        aria-disabled="true"
-                      >
-                        {platform.cta}
-                      </span>
-                    )}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+                  {platform.cta}
+                </a>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
@@ -235,15 +162,8 @@ export default function CommunitySection() {
 
 function IconWhatsApp(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      {...props}
-    >
-      <path d="M20 12A8 8 0 0 1 8.2 19l-3.7 1 1-3.5A8 8 0 1 1 20 12Z" />
-      <path d="M9.6 8.7c.2-.5.4-.5.7-.5h.5c.2 0 .4 0 .6.4.2.4.8 1.8.9 1.9.1.2.1.3 0 .5-.1.2-.2.3-.3.4l-.4.4c-.1.1-.2.2-.1.4.1.2.5 1 1.2 1.6.8.7 1.5.9 1.7 1 .2.1.3 0 .4-.1l.6-.8c.1-.2.3-.2.5-.1l1.7.8c.2.1.4.2.4.4s-.1 1-.5 1.4c-.4.4-.8.4-1.1.5-.3 0-1.8-.2-3.4-1.6-2-1.7-2.7-3.6-2.8-3.8-.1-.2-.7-1.4-.7-2.6 0-.5.1-.9.3-1.2Z" />
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12.05 2.04A9.93 9.93 0 0 0 2.14 11.95c0 1.73.45 3.42 1.31 4.9L2 22l5.29-1.39a9.9 9.9 0 0 0 4.76 1.22h.01A9.94 9.94 0 0 0 22 11.91a9.92 9.92 0 0 0-2.83-7.03 9.9 9.9 0 0 0-7.12-2.84Zm0 17.97h-.01a8.02 8.02 0 0 1-4.09-1.12l-.29-.17-3.14.82.84-3.05-.19-.31a8.02 8.02 0 0 1 1.24-10.15 7.95 7.95 0 0 1 5.64-2.34c4.41 0 8 3.59 8 8a8 8 0 0 1-8 8Zm4.39-6.02c-.24-.12-1.41-.69-1.63-.77-.22-.08-.39-.12-.56.12-.16.24-.62.77-.76.93-.14.16-.29.18-.53.06-.24-.12-1-.36-1.89-1.15-.71-.63-1.18-1.4-1.31-1.64-.14-.24-.01-.36.11-.48.11-.11.24-.28.35-.42.11-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.53-1.28-.73-1.76-.19-.45-.39-.39-.53-.39h-.45c-.16 0-.41.06-.62.3-.21.24-.82.8-.82 1.94 0 1.14.84 2.25.96 2.4.12.16 1.65 2.52 4 3.53.56.24 1 .38 1.35.48.57.18 1.09.15 1.5.09.46-.07 1.41-.57 1.61-1.12.2-.55.2-1.02.14-1.12-.06-.1-.23-.16-.47-.28Z" />
     </svg>
   );
 }
