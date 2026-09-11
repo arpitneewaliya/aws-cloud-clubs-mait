@@ -27,7 +27,7 @@ export default function TeamGridView() {
             className={[
               "px-5 py-2.5 rounded-full text-sm font-bold font-headline transition-all duration-200 border",
               filter === c
-                ? "bg-primary-container text-on-primary-container border-primary-container shadow-lg shadow-blue-900/10"
+                ? "bg-primary-container text-on-primary-container border-primary-container shadow-lg shadow-purple-900/10"
                 : "bg-surface-container-lowest text-on-surface-variant border-surface-variant hover:text-primary hover:border-primary/40",
             ].join(" ")}
           >
@@ -40,7 +40,7 @@ export default function TeamGridView() {
         {filtered.map((m) => (
           <article
             key={m.id}
-            className="rounded-[24px] bg-surface-container-lowest border border-surface-variant shadow-lg shadow-blue-900/5 overflow-hidden hover:-translate-y-1 transition-transform"
+            className="rounded-[24px] bg-surface-container-lowest border border-surface-variant shadow-lg shadow-purple-900/5 overflow-hidden hover:-translate-y-1 transition-transform"
           >
             <div className="h-44 bg-surface-container flex items-center justify-center overflow-hidden">
               {m.imageSrc ? (

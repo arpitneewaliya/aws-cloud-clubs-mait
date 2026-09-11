@@ -8,7 +8,7 @@ export default function CTA() {
           className="absolute inset-0 opacity-5 pointer-events-none"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(45deg, #275aa8 0, #275aa8 1px, transparent 0, transparent 50%)",
+              "repeating-linear-gradient(45deg, #7c3aed 0, #7c3aed 1px, transparent 0, transparent 50%)",
             backgroundSize: "10px 10px",
           }}
         ></div>

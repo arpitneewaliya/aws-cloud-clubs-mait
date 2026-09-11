@@ -23,21 +23,19 @@ export default function Navbar() {
   }, [pathname]);
 
   const getDesktopLinkClasses = (isActive: boolean) =>
-    `relative font-headline font-bold pb-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-1 after:bg-primary after:transition-all after:duration-300 hover:text-primary ${
-      isActive
-        ? "text-primary after:w-full"
-        : "text-on-surface-variant after:w-0 hover:after:w-full"
+    `relative font-headline font-bold pb-1 transition-colors after:absolute after:bottom-0 after:left-0 after:h-1 after:bg-primary after:transition-all after:duration-300 hover:text-primary ${isActive
+      ? "text-primary after:w-full"
+      : "text-on-surface-variant after:w-0 hover:after:w-full"
     }`;
 
   const getMobileLinkClasses = (isActive: boolean, index: number) =>
-    `group relative flex items-center justify-between overflow-hidden rounded-2xl border px-4 py-3 font-headline font-bold transition-all duration-300 ${
-      isActive
-        ? "border-primary bg-primary text-on-primary shadow-lg shadow-primary/20"
-        : "border-primary/20 bg-surface-container-high text-on-surface hover:-translate-y-0.5 hover:border-primary/40 hover:bg-surface-container-highest hover:text-primary"
+    `group relative flex items-center justify-between overflow-hidden rounded-2xl border px-4 py-3 font-headline font-bold transition-all duration-300 ${isActive
+      ? "border-primary bg-primary text-on-primary shadow-lg shadow-primary/20"
+      : "border-primary/20 bg-surface-container-high text-on-surface hover:-translate-y-0.5 hover:border-primary/40 hover:bg-surface-container-highest hover:text-primary"
     } ${index % 2 === 0 ? "-rotate-1" : "rotate-1"}`;
 
   return (
-    <header className="fixed left-1/2 top-0 z-50 w-full max-w-7xl -translate-x-1/2 rounded-b-[2rem] px-4 py-3 glass-nav backdrop-blur-md shadow-xl shadow-blue-900/5 sm:px-6 sm:py-4">
+    <header className="fixed left-1/2 top-0 z-50 w-full max-w-7xl -translate-x-1/2 rounded-b-[2rem] px-4 py-3 glass-nav backdrop-blur-md shadow-xl shadow-purple-900/5 sm:px-6 sm:py-4">
       <div className="flex w-full items-center justify-between gap-3">
         <Link href="/" className="flex items-center gap-3">
           <img
@@ -46,7 +44,7 @@ export default function Navbar() {
             src="/logo/aws-cloud-clubs-logo.jpeg"
           />
           <span className="text-lg font-black tracking-tight text-on-primary-container font-headline sm:text-2xl">
-            AWSCC MAIT
+            AWSBC MAIT
           </span>
         </Link>
 
@@ -77,9 +75,8 @@ export default function Navbar() {
 
           <button
             type="button"
-            className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-on-primary-fixed bg-primary text-on-primary shadow-lg transition-all duration-300 active:scale-95 md:hidden ${
-              isMenuOpen ? "rotate-3" : "rotate-0"
-            }`}
+            className={`relative inline-flex h-12 w-12 items-center justify-center rounded-2xl border-2 border-on-primary-fixed bg-primary text-on-primary shadow-lg transition-all duration-300 active:scale-95 md:hidden ${isMenuOpen ? "rotate-3" : "rotate-0"
+              }`}
             onClick={() => setIsMenuOpen((prev) => !prev)}
             aria-label={
               isMenuOpen ? "Close navigation menu" : "Open navigation menu"
@@ -89,27 +86,23 @@ export default function Navbar() {
           >
             <span className="sr-only">Menu</span>
             <span
-              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${
-                isMenuOpen ? "rotate-45" : "-translate-y-2"
-              }`}
+              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${isMenuOpen ? "rotate-45" : "-translate-y-2"
+                }`}
               aria-hidden="true"
             />
             <span
-              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${
-                isMenuOpen ? "opacity-0" : "opacity-100"
-              }`}
+              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
               aria-hidden="true"
             />
             <span
-              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${
-                isMenuOpen ? "-rotate-45" : "translate-y-2"
-              }`}
+              className={`absolute h-0.5 w-6 rounded-full bg-current transition-all duration-300 ${isMenuOpen ? "-rotate-45" : "translate-y-2"
+                }`}
               aria-hidden="true"
             />
             <span
-              className={`pointer-events-none absolute -right-1 -top-1 h-3 w-3 rounded-full bg-on-primary transition-transform duration-300 ${
-                isMenuOpen ? "scale-0" : "scale-100"
-              }`}
+              className={`pointer-events-none absolute -right-1 -top-1 h-3 w-3 rounded-full bg-on-primary transition-transform duration-300 ${isMenuOpen ? "scale-0" : "scale-100"
+                }`}
               aria-hidden="true"
             />
           </button>
@@ -118,13 +111,12 @@ export default function Navbar() {
 
       <nav
         id="mobile-nav-menu"
-        className={`overflow-hidden transition-all duration-500 md:hidden ${
-          isMenuOpen
-            ? "mt-4 max-h-128 opacity-100"
-            : "max-h-0 opacity-0 pointer-events-none"
-        }`}
+        className={`overflow-hidden transition-all duration-500 md:hidden ${isMenuOpen
+          ? "mt-4 max-h-128 opacity-100"
+          : "max-h-0 opacity-0 pointer-events-none"
+          }`}
       >
-        <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-surface-container-low/95 p-3 shadow-2xl shadow-blue-900/10 backdrop-blur">
+        <div className="relative overflow-hidden rounded-3xl border border-primary/20 bg-surface-container-low/95 p-3 shadow-2xl shadow-purple-900/10 backdrop-blur">
           <div
             className="pointer-events-none absolute inset-0 opacity-50"
             aria-hidden="true"
@@ -154,11 +146,10 @@ export default function Navbar() {
                 >
                   <span className="flex items-center gap-2">
                     <span
-                      className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-black ${
-                        isActive
-                          ? "bg-on-primary/20 text-on-primary"
-                          : "bg-primary/10 text-primary"
-                      }`}
+                      className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-black ${isActive
+                        ? "bg-on-primary/20 text-on-primary"
+                        : "bg-primary/10 text-primary"
+                        }`}
                     >
                       {link.badge}
                     </span>

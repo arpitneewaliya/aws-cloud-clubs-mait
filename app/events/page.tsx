@@ -64,7 +64,7 @@ export default function EventsPage() {
           <div
             className="absolute inset-0 opacity-5"
             style={{
-              backgroundImage: "radial-gradient(#275aa8 1px, transparent 1px)",
+              backgroundImage: "radial-gradient(#7c3aed 1px, transparent 1px)",
               backgroundSize: "20px 20px",
             }}
           ></div>

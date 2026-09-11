@@ -24,7 +24,7 @@ export default function TeamSection() {
             className={[
               "px-5 py-2.5 rounded-full text-sm font-bold font-headline transition-all duration-200 border",
               filter === c
-                ? "bg-primary-container text-on-primary-container border-primary-container shadow-lg shadow-blue-900/10"
+                ? "bg-primary-container text-on-primary-container border-primary-container shadow-lg shadow-purple-900/10"
                 : "bg-surface-container-lowest text-on-surface-variant border-surface-variant hover:text-primary hover:border-primary/40",
             ].join(" ")}
           >
