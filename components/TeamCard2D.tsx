@@ -29,7 +29,7 @@ export default function TeamCard2D({
         rounded-[28px]
         bg-surface-container-lowest
         border border-surface-variant
-        shadow-xl shadow-blue-900/10
+        shadow-xl shadow-purple-900/10
         px-8 py-10
         text-left
         transition-transform duration-200

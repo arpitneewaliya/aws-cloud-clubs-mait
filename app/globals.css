@@ -1,57 +1,57 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary-container: #79a5f9;
+  --color-primary-container: #ddd6fe;
   --color-on-error-container: #570008;
   --color-on-tertiary-container: #584500;
   --color-error-container: #fb5151;
   --color-error-dim: #9f0519;
-  --color-secondary: #056380;
-  --color-secondary-dim: #005671;
-  --color-surface-tint: #275aa8;
-  --color-surface-bright: #f3f7fb;
+  --color-secondary: #9333ea;
+  --color-secondary-dim: #7e22ce;
+  --color-surface-tint: #7c3aed;
+  --color-surface-bright: #ffffff;
   --color-tertiary: #705900;
-  --color-inverse-on-surface: #999da1;
-  --color-on-primary-fixed-variant: #002f69;
+  --color-inverse-on-surface: #a8a2b5;
+  --color-on-primary-fixed-variant: #3b0764;
   --color-error: #b31b25;
   --color-on-tertiary: #fff1d5;
-  --color-background: #f3f7fb;
-  --color-outline: #73777b;
-  --color-primary-fixed-dim: #6c98eb;
-  --color-primary-dim: #154d9c;
-  --color-surface-container-high: #dde3e8;
-  --color-secondary-fixed-dim: #87cdee;
+  --color-background: #faf8ff;
+  --color-outline: #7c7688;
+  --color-primary-fixed-dim: #c4b5fd;
+  --color-primary-dim: #6d28d9;
+  --color-surface-container-high: #e5e0f0;
+  --color-secondary-fixed-dim: #e9d5ff;
   --color-tertiary-dim: #624d00;
-  --color-on-secondary-fixed: #00394c;
+  --color-on-secondary-fixed: #3b0764;
   --color-on-tertiary-fixed: #413200;
-  --color-on-primary: #f0f2ff;
+  --color-on-primary: #ffffff;
   --color-tertiary-fixed-dim: #eebe00;
-  --color-secondary-fixed: #95dbfc;
-  --color-secondary-container: #95dbfc;
-  --color-primary-fixed: #79a5f9;
+  --color-secondary-fixed: #f3e8ff;
+  --color-secondary-container: #e9d5ff;
+  --color-primary-fixed: #ddd6fe;
   --color-on-tertiary-fixed-variant: #634e00;
-  --color-primary: #275aa8;
-  --color-surface-container-low: #ecf1f6;
-  --color-inverse-surface: #0a0f12;
-  --color-on-primary-fixed: #000617;
-  --color-on-background: #2a2f32;
-  --color-inverse-primary: #79a5f9;
-  --color-on-secondary-container: #004e65;
-  --color-surface-dim: #ced5db;
-  --color-surface-variant: #d7dee3;
+  --color-primary: #7c3aed;
+  --color-surface-container-low: #f5f2fb;
+  --color-inverse-surface: #18131f;
+  --color-on-primary-fixed: #1e0847;
+  --color-on-background: #1f1b26;
+  --color-inverse-primary: #c4b5fd;
+  --color-on-secondary-container: #3b0764;
+  --color-surface-dim: #e5e1eb;
+  --color-surface-variant: #e0daf0;
   --color-on-error: #ffefee;
-  --color-on-secondary: #e5f5ff;
-  --color-on-primary-container: #002657;
+  --color-on-secondary: #ffffff;
+  --color-on-primary-container: #2e1065;
   --color-tertiary-container: #fecb00;
-  --color-outline-variant: #a9aeb1;
-  --color-on-surface-variant: #575c60;
-  --color-surface-container-highest: #d7dee3;
+  --color-outline-variant: #c9c3d4;
+  --color-on-surface-variant: #5b5666;
+  --color-surface-container-highest: #ddd7ea;
   --color-tertiary-fixed: #fecb00;
-  --color-on-surface: #2a2f32;
+  --color-on-surface: #1f1b26;
   --color-surface-container-lowest: #ffffff;
-  --color-surface-container: #e3e9ee;
-  --color-surface: #f3f7fb;
-  --color-on-secondary-fixed-variant: #005872;
+  --color-surface-container: #ede9f6;
+  --color-surface: #faf8ff;
+  --color-on-secondary-fixed-variant: #581c87;
 
   --font-headline: "Space Grotesk", var(--default-font-family);
   --font-body: "Be Vietnam Pro", var(--default-font-family);
@@ -114,7 +114,7 @@
 }
 
 .pixel-hard-shadow {
-  box-shadow: 4px 4px 0px 0px #002657;
+  box-shadow: 4px 4px 0px 0px #2e1065;
 }
 
 .glass-nav {
@@ -123,11 +123,11 @@
 }
 
 .cloud-gradient {
-  background: linear-gradient(135deg, #275aa8 0%, #79a5f9 100%);
+  background: linear-gradient(135deg, #7c3aed 0%, #a855f7 100%);
 }
 
 .footer-cloud-gradient {
-  background: linear-gradient(145deg, #eef5ff 0%, #ddeaff 48%, #c9deff 100%);
+  background: linear-gradient(145deg, #fbf9ff 0%, #f3e8ff 48%, #e9d5ff 100%);
 }
 
 .floating-islet {

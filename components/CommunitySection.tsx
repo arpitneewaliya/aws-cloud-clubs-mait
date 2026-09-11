@@ -60,8 +60,8 @@ const platforms: Platform[] = [
     cta: "Join Group",
     href: "https://meetup.com/aws-cloud-club-at-maharaja-agrasen-inst-of-technology",
     Icon: IconMeetup,
-    iconPanel: "bg-[#1f4e60] text-[#bde6ff]",
-    buttonTone: "bg-[#6f9be8] text-[#10346f]",
+    iconPanel: "bg-[#4c1d95] text-[#e9d5ff]",
+    buttonTone: "bg-[#7c3aed] text-white",
   },
 ];
 
@@ -116,7 +116,7 @@ export default function CommunitySection() {
             return (
               <article
                 key={platform.key}
-                className={`rounded-3xl border border-outline-variant/40 bg-surface-container-lowest px-5 py-6 text-center shadow-[0_10px_30px_rgba(39,90,168,0.09)] transition-all duration-300 hover:-translate-y-1 ${
+                className={`rounded-3xl border border-outline-variant/40 bg-surface-container-lowest px-5 py-6 text-center shadow-[0_10px_30px_rgba(124,58,237,0.10)] transition-all duration-300 hover:-translate-y-1 ${
                   isVisible
                     ? "animate-fade-in-up motion-reduce:animate-none"
                     : "translate-y-5 opacity-0"

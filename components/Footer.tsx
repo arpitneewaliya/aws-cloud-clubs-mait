@@ -53,7 +53,7 @@ export default function Footer() {
       style={{
         borderTopLeftRadius: "4rem",
         borderTopRightRadius: "4rem",
-        boxShadow: "0 -20px 50px rgba(0,68,146,0.1)",
+        boxShadow: "0 -20px 50px rgba(124,58,237,0.12)",
       }}
     >
       <div
@@ -126,7 +126,7 @@ export default function Footer() {
       </div>
 
       <div
-        className="pointer-events-none absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-blue-200/20 blur-3xl"
+        className="pointer-events-none absolute -bottom-10 -left-10 h-40 w-40 rounded-full bg-purple-200/20 blur-3xl"
         aria-hidden="true"
       />
       <div

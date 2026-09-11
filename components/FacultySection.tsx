@@ -24,7 +24,7 @@ export default function FacultySection() {
               rounded-[24px]
               bg-surface-container-lowest
               border border-surface-variant
-              shadow-lg shadow-blue-900/5
+              shadow-lg shadow-purple-900/5
               p-6
               transition-transform duration-200
               hover:-translate-y-1
